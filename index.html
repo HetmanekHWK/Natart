@@ -1,10 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>NatArt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NatArt - Soon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #151515 0%, #050505 60%, #000 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    animation: fadeIn 2s ease forwards;
+}
+
+.logo {
+    font-size: 90px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    background: linear-gradient(90deg, #d4af37, #ffffff, #777);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glow 3s ease-in-out infinite alternate, float 4s ease-in-out infinite;
+}
+
+.brand {
+    margin-top: 25px;
+    font-size: 48px;
+    letter-spacing: 18px;
+    font-weight: 300;
+}
+
+.brand span {
+    color: #d4af37;
+}
+
+.soon {
+    margin-top: 35px;
+    font-size: 32px;
+    letter-spacing: 20px;
+    opacity: 0.85;
+    animation: pulse 2s infinite;
+}
+
+.ring {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    animation: rotate 8s linear infinite;
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
+}
+
+.ring::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 0 25px rgba(255,255,255,0.35);
+}
+
+.particles span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #d4af37;
+    border-radius: 50%;
+    animation: particle 5s linear infinite;
+}
+
+.particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particles span:nth-child(2) { left: 25%; animation-delay: 1s; }
+.particles span:nth-child(3) { left: 45%; animation-delay: 2s; }
+.particles span:nth-child(4) { left: 65%; animation-delay: 3s; }
+.particles span:nth-child(5) { left: 85%; animation-delay: 4s; }
+
+.wave {
+    position: absolute;
+    width: 120vw;
+    height: 200px;
+    border-top: 1px solid rgba(212,175,55,0.35);
+    border-radius: 50%;
+    animation: waveMove 6s ease-in-out infinite alternate;
+}
+
+.wave.one {
+    top: 55%;
+    left: -10%;
+}
+
+.wave.two {
+    top: 45%;
+    right: -10%;
+    animation-delay: 1.5s;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 15px rgba(212,175,55,0.4);
+    }
+    to {
+        text-shadow: 0 0 45px rgba(212,175,55,0.9);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -60%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -60%) rotate(360deg);
+    }
+}
+
+@keyframes particle {
+    0% {
+        top: 100%;
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        top: -10%;
+        opacity: 0;
+    }
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateX(-50px) rotate(3deg);
+    }
+    to {
+        transform: translateX(50px) rotate(-3deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Arti Ma Malego</h1>
-    <p>Siusiaka</p>
+
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="wave one"></div>
+<div class="wave two"></div>
+
+<div class="container">
+    <div class="ring"></div>
+    <div class="logo">NA</div>
+    <div class="brand">Nat<span>Art</span></div>
+    <div class="soon">Soon</div>
+</div>
+
 </body>
 </html>
